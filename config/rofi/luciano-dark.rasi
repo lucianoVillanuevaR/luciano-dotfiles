@@ -1,0 +1,67 @@
+* {
+  bg: #0f1117;
+  bg-alt: #171a21;
+  fg: #c0caf5;
+  muted: #7f849c;
+  accent: #7aa2f7;
+  urgent: #f7768e;
+
+  background-color: transparent;
+  text-color: @fg;
+}
+
+window {
+  width: 42%;
+  border: 1px;
+  border-color: #3d4658;
+  border-radius: 8px;
+  background-color: @bg;
+}
+
+mainbox {
+  padding: 12px;
+  spacing: 10px;
+}
+
+inputbar {
+  padding: 10px;
+  border-radius: 6px;
+  background-color: @bg-alt;
+  children: [prompt, entry];
+}
+
+prompt {
+  text-color: @accent;
+  padding: 0 8px 0 0;
+}
+
+entry {
+  placeholder: "Buscar";
+  placeholder-color: @muted;
+}
+
+listview {
+  lines: 8;
+  columns: 1;
+  fixed-height: true;
+  spacing: 4px;
+}
+
+element {
+  padding: 9px 10px;
+  border-radius: 6px;
+}
+
+element selected {
+  background-color: @accent;
+  text-color: @bg;
+}
+
+element-icon {
+  size: 22px;
+  margin: 0 10px 0 0;
+}
+
+element-text {
+  vertical-align: 0.5;
+}
