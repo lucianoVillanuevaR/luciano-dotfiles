@@ -24,7 +24,11 @@ backup_path() {
   local dest="$BACKUP_SESSION/$rel"
   run_cmd mkdir -p "$(dirname -- "$dest")"
   run_cmd mv -- "$target" "$dest"
-  log_ok "Backed up $target to $dest"
+  if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
+    log_info "Would back up $target to $dest"
+  else
+    log_ok "Backed up $target to $dest"
+  fi
 }
 
 install_config_dir() {
@@ -46,5 +50,9 @@ install_config_dir() {
   backup_path "$target"
   run_cmd mkdir -p "$(dirname -- "$target")"
   run_cmd ln -sfn -- "$source" "$target"
-  log_ok "Linked $target -> $source"
+  if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
+    log_info "Would link $target -> $source"
+  else
+    log_ok "Linked $target -> $source"
+  fi
 }

@@ -34,6 +34,11 @@ install_package_profile() {
   [[ "$IS_ARCH_LIKE" -eq 1 ]] || die "Profile '$profile' currently supports CachyOS/Arch-like systems only"
   [[ -n "$PACMAN_BIN" ]] || die "pacman is required to install package profiles"
 
+  if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
+    preview_package_profile "$profile" "$file"
+    return 0
+  fi
+
   local entry pkg pacman_missing=() aur_missing=()
   while IFS= read -r entry; do
     pkg="$(package_name "$entry")"
@@ -62,6 +67,35 @@ install_package_profile() {
       run_cmd "$AUR_HELPER" -S --needed "${aur_missing[@]}"
     else
       log_warn "Skipping AUR packages because paru/yay was not found: ${aur_missing[*]}"
+    fi
+  fi
+}
+
+preview_package_profile() {
+  local profile="$1"
+  local file="$2"
+  local entry pkg pacman_packages=() aur_packages=()
+
+  while IFS= read -r entry; do
+    pkg="$(package_name "$entry")"
+    if is_aur_entry "$entry"; then
+      aur_packages+=("$pkg")
+    else
+      pacman_packages+=("$pkg")
+    fi
+  done < <(read_package_file "$file")
+
+  if [[ "${#pacman_packages[@]}" -gt 0 ]]; then
+    log_info "Dry-run for '$profile': would install repo packages with --needed"
+    run_cmd sudo pacman -S --needed "${pacman_packages[@]}"
+  fi
+
+  if [[ "${#aur_packages[@]}" -gt 0 ]]; then
+    if [[ -n "$AUR_HELPER" ]]; then
+      log_info "Dry-run for '$profile': would install AUR packages with --needed"
+      run_cmd "$AUR_HELPER" -S --needed "${aur_packages[@]}"
+    else
+      log_warn "Dry-run for '$profile': would skip AUR packages because paru/yay was not found: ${aur_packages[*]}"
     fi
   fi
 }
