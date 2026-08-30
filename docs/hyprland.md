@@ -47,17 +47,25 @@ Hyprland documentation for 0.55+ and avoids a monolithic `hyprland.conf`.
 
 ## Multi-GPU
 
-`config/hypr/modules/gpu.lua` sets `AQ_DRM_DEVICES` with AMD first and NVIDIA
-second:
+`config/hypr/modules/gpu.lua` keeps `AQ_DRM_DEVICES` temporarily disabled for
+the first Hyprland session. Hyprland will autodetect the GPUs during that first
+test.
 
-```text
-/dev/dri/by-path/pci-0000:05:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card
-```
+Do not concatenate the current `/dev/dri/by-path/pci-*` paths directly into
+`AQ_DRM_DEVICES`: the PCI path names contain `:` characters, and
+`AQ_DRM_DEVICES` also uses `:` as its separator. The persistent GPU selection
+will be resolved after the first session, likely with explicit AMD/NVIDIA DRM
+aliases reviewed in a separate step.
 
-This makes AMD Vega the preferred renderer while keeping NVIDIA available for
-games and for outputs physically wired to it. If HDMI behaves unexpectedly, the
-first Hyprland test should include `hyprctl monitors all` and a review of this
-ordering.
+Known PCI IDs remain documented:
+
+- AMD Vega: `05:00.0`.
+- NVIDIA GTX 1650: `01:00.0`.
+
+The future target remains AMD Vega as the preferred renderer and NVIDIA
+available for games or outputs physically wired to it. If HDMI behaves
+unexpectedly, the first Hyprland test should include `hyprctl monitors all` and
+a review of the GPU order.
 
 No legacy NVIDIA variables are enabled. Variables such as `GBM_BACKEND`,
 `__GLX_VENDOR_LIBRARY_NAME` or cursor workarounds should only be added after a

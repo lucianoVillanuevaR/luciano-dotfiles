@@ -8,16 +8,20 @@
 --   AMD card:    /dev/dri/by-path/pci-0000:05:00.0-card
 --   AMD render:  /dev/dri/by-path/pci-0000:05:00.0-render
 --
--- Hyprland/Aquamarine uses AQ_DRM_DEVICES as a colon-separated list of DRM
--- card devices; the first path is primary. The intended order for this laptop
--- is AMD Vega first, NVIDIA second, keeping NVIDIA available for games and for
--- any outputs wired to it, such as HDMI on many hybrid laptops.
+-- AQ_DRM_DEVICES is intentionally disabled for the first Hyprland session.
 --
--- Enabled because both persistent PCI card paths were identified above.
-hl.env(
-  "AQ_DRM_DEVICES",
-  "/dev/dri/by-path/pci-0000:05:00.0-card:/dev/dri/by-path/pci-0000:01:00.0-card"
-)
+-- Hyprland/Aquamarine expects AQ_DRM_DEVICES to be a colon-separated list, but
+-- the PCI by-path names also contain colons. Do not concatenate these paths
+-- directly. For now Hyprland will autodetect GPUs during the first session.
+--
+-- After confirming the first session and monitor wiring, decide whether to add
+-- persistent DRM aliases for AMD/NVIDIA with udev rules in a separate reviewed
+-- step.
+--
+-- Intended future order, once safe aliases exist:
+--   AMD Vega first, NVIDIA GTX 1650 second.
+-- Example only:
+--   hl.env("AQ_DRM_DEVICES", "/dev/dri/amd-igpu:/dev/dri/nvidia-dgpu")
 
 -- Do not add legacy NVIDIA variables here by habit. Revisit only if a concrete
 -- issue appears and current Hyprland/Arch documentation still recommends it.
