@@ -4,6 +4,7 @@ log_info() { printf '[ INFO ] %s\n' "$*"; }
 log_ok() { printf '[ OK ] %s\n' "$*"; }
 log_warn() { printf '[ WARN ] %s\n' "$*" >&2; }
 log_fail() { printf '[ FAIL ] %s\n' "$*" >&2; }
+log_dry() { printf '[ DRY ] Would %s\n' "$*"; }
 die() { log_fail "$*"; exit 1; }
 
 command_exists() {

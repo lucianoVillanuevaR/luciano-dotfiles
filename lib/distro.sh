@@ -2,11 +2,11 @@
 
 # Shared installer state. These variables are intentionally populated here and
 # read by install.sh or other lib/*.sh modules after this file is sourced.
+REPO_DIR="${REPO_DIR:-}"
 DISTRO_ID=""
 DISTRO_ID_LIKE=""
 DISTRO_PRETTY_NAME=""
 IS_ARCH_LIKE=0
-IS_CACHYOS=0
 PACMAN_BIN=""
 AUR_HELPER=""
 
@@ -19,8 +19,6 @@ detect_distro() {
   DISTRO_PRETTY_NAME="${PRETTY_NAME:-$DISTRO_ID}"
 
   if [[ "$DISTRO_ID" == "cachyos" ]]; then
-    # shellcheck disable=SC2034 # Shared state for CachyOS-specific modules.
-    IS_CACHYOS=1
     # shellcheck disable=SC2034 # Shared state read by lib/packages.sh.
     IS_ARCH_LIKE=1
   elif [[ "$DISTRO_ID" == "arch" || "$DISTRO_ID_LIKE" == *arch* ]]; then
@@ -44,7 +42,7 @@ detect_package_tools() {
     log_ok "AUR helper detected: paru"
   elif command_exists yay; then
     # shellcheck disable=SC2034 # Shared state read by lib/packages.sh.
-    AUR_HELPER="$(command -v yay)"
+    printf -v AUR_HELPER '%s' "$(command -v yay)"
     log_ok "AUR helper detected: yay"
   else
     log_warn "No AUR helper detected. AUR packages will be skipped."

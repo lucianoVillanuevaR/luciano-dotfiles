@@ -56,6 +56,8 @@ Interactive menu:
 ./install.sh
 ```
 
+Recommended workflow: install incrementally, starting with `common` or `dotfiles`, then review each additional profile before applying it. The `full` profile exists for recovery scenarios, but it is not the recommended default for day-to-day setup.
+
 Direct profiles are planned and partially wired:
 
 ```bash
@@ -71,6 +73,11 @@ Direct profiles are planned and partially wired:
 - `gaming`: Steam, Proton helpers and overlays without driver/kernel changes.
 - `hyprland`: packages for a future alternative Hyprland session.
 - `development`: basic development tools, intentionally conservative.
+- `full`: runs `common`, `cachyos`, `gaming`, `hyprland`, `development` and `dotfiles`.
+
+## Repository Location
+
+Keep this repository in a stable location before installing dotfiles. A path like `~/.dotfiles` is recommended because managed configuration is linked back to the repository. If the repository is moved later, existing symlinks can break and should be recreated intentionally.
 
 ## Hyprland
 

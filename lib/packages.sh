@@ -86,16 +86,14 @@ preview_package_profile() {
   done < <(read_package_file "$file")
 
   if [[ "${#pacman_packages[@]}" -gt 0 ]]; then
-    log_info "Dry-run for '$profile': would install repo packages with --needed"
-    run_cmd sudo pacman -S --needed "${pacman_packages[@]}"
+    log_dry "install repo packages for '$profile' with: sudo pacman -S --needed ${pacman_packages[*]}"
   fi
 
   if [[ "${#aur_packages[@]}" -gt 0 ]]; then
     if [[ -n "$AUR_HELPER" ]]; then
-      log_info "Dry-run for '$profile': would install AUR packages with --needed"
-      run_cmd "$AUR_HELPER" -S --needed "${aur_packages[@]}"
+      log_dry "install AUR packages for '$profile' with: $AUR_HELPER -S --needed ${aur_packages[*]}"
     else
-      log_warn "Dry-run for '$profile': would skip AUR packages because paru/yay was not found: ${aur_packages[*]}"
+      log_dry "skip AUR packages for '$profile' because paru/yay was not found: ${aur_packages[*]}"
     fi
   fi
 }
