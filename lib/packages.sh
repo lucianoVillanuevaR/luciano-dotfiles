@@ -34,11 +34,6 @@ install_package_profile() {
   [[ "$IS_ARCH_LIKE" -eq 1 ]] || die "Profile '$profile' currently supports CachyOS/Arch-like systems only"
   [[ -n "$PACMAN_BIN" ]] || die "pacman is required to install package profiles"
 
-  if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
-    preview_package_profile "$profile" "$file"
-    return 0
-  fi
-
   local entry pkg pacman_missing=() aur_missing=()
   while IFS= read -r entry; do
     pkg="$(package_name "$entry")"
@@ -53,6 +48,11 @@ install_package_profile() {
 
   if [[ "${#pacman_missing[@]}" -eq 0 && "${#aur_missing[@]}" -eq 0 ]]; then
     log_ok "All packages in '$profile' are already installed"
+    return 0
+  fi
+
+  if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
+    preview_missing_packages "$profile" "${pacman_missing[@]}" -- "${aur_missing[@]}"
     return 0
   fi
 
@@ -71,19 +71,27 @@ install_package_profile() {
   fi
 }
 
-preview_package_profile() {
+preview_missing_packages() {
   local profile="$1"
-  local file="$2"
-  local entry pkg pacman_packages=() aur_packages=()
+  shift
 
-  while IFS= read -r entry; do
-    pkg="$(package_name "$entry")"
-    if is_aur_entry "$entry"; then
-      aur_packages+=("$pkg")
-    else
-      pacman_packages+=("$pkg")
+  local pacman_packages=()
+  local aur_packages=()
+  local mode="pacman"
+  local pkg
+
+  for pkg in "$@"; do
+    if [[ "$pkg" == "--" ]]; then
+      mode="aur"
+      continue
     fi
-  done < <(read_package_file "$file")
+
+    if [[ "$mode" == "pacman" ]]; then
+      pacman_packages+=("$pkg")
+    else
+      aur_packages+=("$pkg")
+    fi
+  done
 
   if [[ "${#pacman_packages[@]}" -gt 0 ]]; then
     log_dry "install repo packages for '$profile' with: sudo pacman -S --needed ${pacman_packages[*]}"
