@@ -1,0 +1,5 @@
+# CachyOS / Arch convenience tools
+pacman-contrib
+reflector
+rate-mirrors
+meld

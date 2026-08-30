@@ -1,0 +1,7 @@
+# Conservative development base
+base-devel
+neovim
+git
+github-cli
+docker
+docker-compose

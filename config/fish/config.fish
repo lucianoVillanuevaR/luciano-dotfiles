@@ -1,0 +1,1 @@
+# Luciano dotfiles fish entrypoint.

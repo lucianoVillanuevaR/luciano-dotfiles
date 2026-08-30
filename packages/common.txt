@@ -1,0 +1,12 @@
+# General tools
+git
+curl
+wget
+unzip
+rsync
+jq
+fastfetch
+btop
+fish
+kitty
+shellcheck

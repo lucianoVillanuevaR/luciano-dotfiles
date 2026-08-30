@@ -1,0 +1,13 @@
+# Gaming stack. This profile intentionally does not install kernels,
+# NVIDIA drivers, PRIME tools or bootloader configuration.
+steam
+gamemode
+lib32-gamemode
+mangohud
+lib32-mangohud
+gamescope
+vulkan-tools
+vulkan-radeon
+lib32-vulkan-radeon
+protonup-qt
+# Prefix future AUR-only packages with aur:package-name.

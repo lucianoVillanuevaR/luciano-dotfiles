@@ -1,0 +1,36 @@
+# Secrets and credentials
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+id_rsa
+id_ed25519
+*.kdbx
+
+# Local machine state
+backups/
+*.bak
+*.backup
+*.local
+*.tmp
+*.swp
+*~
+
+# Logs and caches
+*.log
+.cache/
+
+# Sensitive application data
+cookies.sqlite
+Login Data
+Steam/config/loginusers.vdf
+Steam/config/config.vdf
+
+# Generated/package artifacts
+*.tar
+*.tar.gz
+*.zip
+node_modules/
+__pycache__/
