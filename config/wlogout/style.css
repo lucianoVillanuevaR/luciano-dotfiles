@@ -1,0 +1,31 @@
+* {
+  font-family: "Noto Sans", sans-serif;
+  font-size: 14px;
+  letter-spacing: 0;
+}
+
+window {
+  background: rgba(15, 17, 23, 0.78);
+}
+
+button {
+  color: #c0caf5;
+  background: rgba(23, 26, 33, 0.92);
+  border: 1px solid #3d4658;
+  border-radius: 8px;
+  margin: 8px;
+  padding: 18px;
+}
+
+button:focus,
+button:hover {
+  color: #0f1117;
+  background: #7aa2f7;
+  border-color: #7aa2f7;
+}
+
+#shutdown:hover,
+#reboot:hover {
+  background: #f7768e;
+  border-color: #f7768e;
+}
