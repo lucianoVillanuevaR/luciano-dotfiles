@@ -1,12 +1,30 @@
 # Recovery
 
-Expected future flow:
+Backups:
 
 ```bash
-git clone <repository-url> dotfiles
-cd dotfiles
-./install.sh --dry-run
-./install.sh
+ls ~/.local/share/luciano-dotfiles/backups/
 ```
 
-Backups are stored in `~/.local/share/luciano-dotfiles/backups/`.
+Hyprland config:
+
+```bash
+hyprctl configerrors
+```
+
+Waybar service:
+
+```bash
+systemctl --user status waybar.service
+systemctl --user daemon-reload
+systemctl --user restart waybar.service
+```
+
+Wallpaper:
+
+```bash
+hyprctl hyprpaper listactive
+cp /ruta/a/imagen.jpg ~/.dotfiles/wallpapers/current.jpg
+pkill hyprpaper
+~/.dotfiles/scripts/start-wallpaper.sh
+```

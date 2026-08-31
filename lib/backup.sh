@@ -69,13 +69,9 @@ preview_install_config_dir() {
   log_dry "link $target -> $source"
 }
 
-install_config_dir() {
-  local name="$1"
+install_symlink() {
+  local source="$1"
   local target="$2"
-  local source="$SCRIPT_DIR/config/$name"
-
-  [[ -d "$source" ]] || die "Missing config source: $source"
-
   if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
     preview_install_config_dir "$target" "$source"
     return 0
@@ -112,4 +108,13 @@ install_config_dir() {
     fi
   fi
   return 1
+}
+
+install_config_dir() {
+  local name="$1"
+  local target="$2"
+  local source="$SCRIPT_DIR/config/$name"
+
+  [[ -d "$source" ]] || die "Missing config source: $source"
+  install_symlink "$source" "$target"
 }

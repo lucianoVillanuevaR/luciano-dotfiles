@@ -73,15 +73,12 @@ specific issue appears and current documentation still recommends them.
 
 ## Monitors
 
-The initial monitor configuration is deliberately generic:
+Monitor configuration lives in `config/hypr/modules/monitors.lua`. Validate the
+active layout from inside Hyprland with:
 
-```lua
-hl.monitor({ output = "", mode = "preferred", position = "auto", scale = 1 })
+```bash
+hyprctl monitors all
 ```
-
-This avoids assuming connector names. The target layout is internal
-`1920x1080@60` plus external `1920x1080@60`, both scale `1`, after names are
-confirmed from inside Hyprland.
 
 ## Portals
 
@@ -99,20 +96,35 @@ session. Do not remove KDE portal packages as part of Hyprland setup.
 - Wlogout: `config/wlogout/layout`, `config/wlogout/style.css`.
 - Diagnostics: `scripts/hyprland-info.sh`.
 
-The installer does not deploy these dotfiles yet. Review them first, then decide
-when to add `hypr`, `waybar`, `rofi`, `hyprlock` and `wlogout` to
-`install_dotfiles`.
+Deploy the Hyprland desktop configuration with:
 
-## Missing Runtime Packages
+```bash
+./install.sh --dry-run hyprland-dotfiles
+./install.sh hyprland-dotfiles
+```
 
-At detection time, these package commands did not report installed packages:
+This links:
 
-- `wl-clipboard`
-- `cliphist`
-- `grim`
-- `slurp`
-- `hyprlock`
-- `wlogout`
-- `uwsm`
+- `~/.config/hypr`
+- `~/.config/swaync`
+- `~/.config/waybar`
+- `~/.config/rofi`
+- `~/.config/hyprlock`
+- `~/.config/wlogout`
+- `~/.config/systemd/user/waybar.service`
 
-They are not installed automatically during this phase.
+After `waybar.service` is linked, the installer runs
+`systemctl --user daemon-reload`. It does not enable or start the service;
+Hyprland starts it from `config/hypr/modules/autostart.lua`.
+
+## Runtime Packages
+
+Install the Hyprland package profile before deploying the dotfiles:
+
+```bash
+./install.sh --dry-run hyprland
+./install.sh hyprland
+```
+
+The profile includes Waybar, Rofi, Hyprlock, Wlogout, Hyprpaper, SwayNC,
+wl-clipboard, cliphist, grim, slurp, brightnessctl, playerctl and pavucontrol.

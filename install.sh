@@ -71,6 +71,30 @@ install_hyprland_dotfiles() {
   install_config_dir "rofi" "$HOME/.config/rofi"
   install_config_dir "hyprlock" "$HOME/.config/hyprlock"
   install_config_dir "wlogout" "$HOME/.config/wlogout"
+  install_waybar_service
+  warn_missing_wallpaper
+}
+
+install_waybar_service() {
+  local source="$SCRIPT_DIR/config/systemd/user/waybar.service"
+  local target="$HOME/.config/systemd/user/waybar.service"
+
+  [[ -f "$source" ]] || die "Missing systemd user service: $source"
+  install_symlink "$source" "$target"
+
+  if [[ "${DRY_RUN:-0}" -eq 1 ]]; then
+    log_dry "run systemctl --user daemon-reload"
+    return 0
+  fi
+
+  run_cmd systemctl --user daemon-reload
+}
+
+warn_missing_wallpaper() {
+  local wallpaper="$HOME/.dotfiles/wallpapers/current.jpg"
+  if [[ ! -f "$wallpaper" ]]; then
+    log_warn "No wallpaper found at ~/.dotfiles/wallpapers/current.jpg"
+  fi
 }
 
 run_profile() {
@@ -90,6 +114,7 @@ run_profile() {
       install_package_profile "hyprland"
       install_package_profile "development"
       install_dotfiles
+      install_hyprland_dotfiles
       ;;
     *) die "Unknown profile: $profile" ;;
   esac
