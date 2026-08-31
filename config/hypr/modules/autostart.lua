@@ -21,6 +21,7 @@ hl.on("hyprland.start", function()
 
   run_once("$HOME/.dotfiles/scripts/start-wallpaper.sh", "hyprpaper", true)
   run_once("swaync", "swaync", true)
+  run_once("setsid -f swayosd-server", "swayosd-server", true)
 
   hl.exec_cmd(
     "systemctl --user import-environment WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && " ..

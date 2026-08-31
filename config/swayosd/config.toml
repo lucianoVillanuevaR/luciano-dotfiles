@@ -1,0 +1,9 @@
+[server]
+top_margin = 0.85
+max_volume = 100
+min_brightness = 5
+show_percentage = true
+keyboard_backlight = false
+duration = 1000
+
+[client]

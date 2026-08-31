@@ -38,7 +38,7 @@ install_dotfiles() {
 }
 
 hyprland_dotfiles_preflight() {
-  local required=(Hyprland waybar rofi hyprlock wlogout hyprpaper swaync wl-copy cliphist grim slurp)
+  local required=(Hyprland waybar rofi hyprlock wlogout hyprpaper swaync swayosd-client swayosd-server wl-copy cliphist grim slurp)
   local missing=()
   local tool
 
@@ -71,6 +71,7 @@ install_hyprland_dotfiles() {
   install_config_dir "rofi" "$HOME/.config/rofi"
   install_config_dir "hyprlock" "$HOME/.config/hyprlock"
   install_config_dir "wlogout" "$HOME/.config/wlogout"
+  install_config_dir "swayosd" "$HOME/.config/swayosd"
   install_waybar_service
   warn_missing_wallpaper
 }

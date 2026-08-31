@@ -6,6 +6,7 @@ hyprlock
 wlogout
 hyprpaper
 swaync
+swayosd
 wl-clipboard
 cliphist
 grim
