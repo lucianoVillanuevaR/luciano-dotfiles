@@ -11,6 +11,8 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", actio
 hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.dotfiles/scripts/clipboard-menu.sh"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("~/.dotfiles/scripts/minimize-window.sh"))
+hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.dotfiles/scripts/restore-minimized.sh"))
 
 hl.bind("Print", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenshot-full.sh"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenshot-area.sh"))
