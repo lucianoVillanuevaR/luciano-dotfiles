@@ -10,10 +10,12 @@ hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", action = "toggle" }))
 hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.dotfiles/scripts/clipboard-menu.sh"))
-hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock --config \"$HOME/.dotfiles/config/hyprlock/hyprlock.conf\""))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("kitty --class spotify-player spotify_player"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd("~/.dotfiles/scripts/toggle-quick-terminal.sh"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("~/.dotfiles/scripts/minimize-window.sh"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.dotfiles/scripts/restore-minimized.sh"))
+hl.bind(mainMod .. " + Tab", hl.dsp.exec_cmd("rofi -show window -theme ~/.dotfiles/config/rofi/luciano-dark.rasi"))
 
 hl.bind("Print", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenshot-full.sh"))
 hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd("~/.dotfiles/scripts/screenshot-area.sh"))
@@ -24,6 +26,7 @@ for i = 1, 9 do
 end
 
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("~/.dotfiles/scripts/power-profile-menu.sh"))
+hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("~/.dotfiles/scripts/control-center.sh"))
 
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))

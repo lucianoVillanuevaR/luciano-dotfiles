@@ -8,10 +8,10 @@
 }
 
 window#waybar {
-  background: rgba(5, 5, 5, 0.68);
+  background: rgba(5, 5, 5, 0.66);
   color: #f0f0f0;
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 9px;
 }
 
 tooltip {
@@ -23,14 +23,14 @@ tooltip {
 
 #workspaces button {
   color: #a0a0a0;
-  padding: 0 9px;
-  margin: 4px 2px;
-  border-radius: 8px;
+  padding: 0 7px;
+  margin: 3px 1px;
+  border-radius: 7px;
 }
 
 #workspaces button.active {
-  color: #ffffff;
-  background: rgba(255, 255, 255, 0.14);
+  color: #f0f0f0;
+  background: rgba(255, 255, 255, 0.10);
 }
 
 #workspaces button.urgent {
@@ -38,35 +38,36 @@ tooltip {
   background: #f7768e;
 }
 
-#window {
-  color: #d8d8d8;
-  margin-left: 8px;
-}
-
 #clock {
   color: #f0f0f0;
   font-weight: 700;
 }
 
-#cpu,
-#memory,
-#temperature,
 #network,
 #pulseaudio,
 #battery,
+#clock,
 #custom-spotify {
-  padding: 0 10px;
-  margin: 5px 2px;
-  background: rgba(25, 25, 25, 0.68);
-  border-radius: 8px;
+  padding: 0 7px;
+  margin: 4px 1px;
+  background: transparent;
+  border-radius: 7px;
 }
 
 #custom-spotify {
-  color: #f0f0f0;
-  margin-right: 8px;
+  color: #d8d8d8;
+  margin-right: 6px;
 }
 
-#temperature.critical,
+#network:hover,
+#pulseaudio:hover,
+#battery:hover,
+#clock:hover,
+#custom-spotify:hover,
+#workspaces button:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
 #battery.critical:not(.charging) {
   color: #f7768e;
 }

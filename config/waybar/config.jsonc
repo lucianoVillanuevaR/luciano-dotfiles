@@ -1,21 +1,18 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 34,
-  "spacing": 8,
+  "height": 32,
+  "spacing": 6,
   "margin-top": 6,
   "margin-left": 8,
   "margin-right": 8,
 
-  "modules-left": ["hyprland/workspaces", "hyprland/window"],
+  "modules-left": ["hyprland/workspaces"],
   "modules-center": ["custom/spotify", "clock"],
-  "modules-right": ["cpu", "memory", "temperature", "network", "pulseaudio", "battery"],
+  "modules-right": ["network", "pulseaudio", "battery"],
 
   "hyprland/workspaces": {
-    "format": "{name}",
-    "persistent-workspaces": {
-      "*": 9
-    }
+    "format": "{name}"
   },
 
   "hyprland/window": {
@@ -31,9 +28,10 @@
 
   "custom/spotify": {
     "exec": "playerctl -p spotify_player metadata --format '♫ {{artist}} - {{title}}' 2>/dev/null || true",
+    "exec-if": "playerctl -p spotify_player status 2>/dev/null | grep -q '^Playing$'",
     "interval": 2,
     "return-type": "text",
-    "max-length": 42,
+    "max-length": 40,
     "on-click": "playerctl -p spotify_player play-pause",
     "on-click-right": "playerctl -p spotify_player next",
     "on-click-middle": "playerctl -p spotify_player previous",
@@ -41,27 +39,13 @@
     "on-scroll-down": "playerctl -p spotify_player previous"
   },
 
-  "cpu": {
-    "format": "CPU {usage}%",
-    "tooltip": true
-  },
-
-  "memory": {
-    "format": "RAM {percentage}%",
-    "tooltip-format": "{used:0.1f} GiB / {total:0.1f} GiB"
-  },
-
-  "temperature": {
-    "format": "{temperatureC}C",
-    "critical-threshold": 85,
-    "tooltip": true
-  },
-
   "network": {
-    "format-wifi": "{essid} {signalStrength}%",
-    "format-ethernet": "Wired",
+    "format-wifi": "WiFi",
+    "format-ethernet": "LAN",
     "format-disconnected": "Offline",
-    "tooltip-format": "{ifname}: {ipaddr}/{cidr}"
+    "tooltip-format-wifi": "{essid}: {signalStrength}% ({ifname})",
+    "tooltip-format-ethernet": "{ifname}: {ipaddr}/{cidr}",
+    "tooltip-format-disconnected": "Sin conexion"
   },
 
   "pulseaudio": {
@@ -79,7 +63,7 @@
       "warning": 30,
       "critical": 15
     },
-    "format": "{capacity}% {icon}",
+    "format": "{capacity}%",
     "format-charging": "{capacity}% +",
     "format-plugged": "{capacity}% AC",
     "format-alt": "{time}",

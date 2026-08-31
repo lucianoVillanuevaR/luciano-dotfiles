@@ -24,3 +24,13 @@ hl.window_rule({
   size = "900 600",
   center = true,
 })
+
+hl.window_rule({
+  name = "quick-terminal",
+  match = { class = "quick-terminal" },
+  float = true,
+  size = "1200 600",
+  center = true,
+  fullscreen = false,
+  pin = false,
+})

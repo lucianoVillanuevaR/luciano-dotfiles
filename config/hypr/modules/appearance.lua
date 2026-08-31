@@ -27,7 +27,7 @@ hl.config({
     inactive_opacity = 1.0,
     shadow = {
       enabled = true,
-      range = 9,
+      range = 7,
       render_power = 2,
       color = palette.shadow,
     },
@@ -58,9 +58,9 @@ hl.curve("lucianoEase", { type = "bezier", points = { { 0.22, 1.0 }, { 0.36, 1.0
 hl.curve("lucianoLinear", { type = "bezier", points = { { 0.0, 0.0 }, { 1.0, 1.0 } } })
 
 hl.animation({ leaf = "global", enabled = true, speed = 1, bezier = "default" })
-hl.animation({ leaf = "windows", enabled = true, speed = 4, bezier = "lucianoEase", style = "popin 92%" })
-hl.animation({ leaf = "fade", enabled = true, speed = 3, bezier = "lucianoEase" })
-hl.animation({ leaf = "workspaces", enabled = true, speed = 3, bezier = "lucianoEase", style = "fade" })
-hl.animation({ leaf = "layers", enabled = true, speed = 3, bezier = "lucianoEase", style = "fade" })
+hl.animation({ leaf = "windows", enabled = true, speed = 5, bezier = "lucianoEase", style = "popin 95%" })
+hl.animation({ leaf = "fade", enabled = true, speed = 4, bezier = "lucianoEase" })
+hl.animation({ leaf = "workspaces", enabled = true, speed = 4, bezier = "lucianoEase", style = "slide" })
+hl.animation({ leaf = "layers", enabled = true, speed = 4, bezier = "lucianoEase", style = "fade" })
 
 return palette
