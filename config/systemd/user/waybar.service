@@ -1,0 +1,10 @@
+[Unit]
+Description=Waybar for Hyprland
+StartLimitIntervalSec=30
+StartLimitBurst=5
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/waybar
+Restart=always
+RestartSec=2

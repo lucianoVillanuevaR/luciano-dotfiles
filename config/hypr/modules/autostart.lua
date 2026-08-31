@@ -10,7 +10,7 @@ end
 hl.on("hyprland.start", function()
   run_once("$HOME/.dotfiles/scripts/start-wallpaper.sh", "hyprpaper")
   run_once("swaync", "^swaync$")
-  run_once("waybar", "^waybar$")
+  hl.exec_cmd("systemctl --user import-environment WAYLAND_DISPLAY HYPRLAND_INSTANCE_SIGNATURE XDG_CURRENT_DESKTOP XDG_SESSION_TYPE && systemctl --user start waybar.service")
   run_once("wl-paste --type text --watch cliphist store", "wl-paste --type text --watch cliphist store")
   run_once("wl-paste --type image --watch cliphist store", "wl-paste --type image --watch cliphist store")
 

@@ -23,6 +23,8 @@ for i = 1, 9 do
   hl.bind(mainMod .. " + SHIFT + " .. i, hl.dsp.window.move({ workspace = i }))
 end
 
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("~/.dotfiles/scripts/power-profile-menu.sh"))
+
 hl.bind(mainMod .. " + left", hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up", hl.dsp.focus({ direction = "up" }))
