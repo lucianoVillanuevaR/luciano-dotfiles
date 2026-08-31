@@ -1,0 +1,85 @@
+* {
+  bg: rgba(5, 5, 5, 18%);
+  bg-item: rgba(8, 8, 8, 42%);
+  bg-selected: rgba(255, 255, 255, 8%);
+  fg: #f2f2f2;
+  muted: rgba(255, 255, 255, 45%);
+  border: rgba(255, 255, 255, 12%);
+  border-selected: rgba(255, 255, 255, 58%);
+
+  background-color: transparent;
+  text-color: @fg;
+  font: "JetBrainsMono Nerd Font 10";
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}
+
+window {
+  location: center;
+  width: 94%;
+  height: 340px;
+  background-color: @bg;
+  border: 0;
+  border-radius: 18px;
+  padding: 18px;
+}
+
+mainbox {
+  orientation: vertical;
+  spacing: 0;
+  children: [listview, message];
+}
+
+inputbar {
+  enabled: false;
+}
+
+message {
+  margin: 12px 0 0 0;
+  padding: 0;
+  background-color: transparent;
+}
+
+textbox {
+  text-color: @muted;
+  horizontal-align: 0.5;
+}
+
+listview {
+  lines: 1;
+  columns: 10;
+  fixed-height: true;
+  fixed-columns: true;
+  scrollbar: false;
+  spacing: 10px;
+  padding: 0;
+  background-color: transparent;
+}
+
+element {
+  orientation: vertical;
+  children: [element-icon];
+  padding: 10px;
+  spacing: 0;
+  border: 1px;
+  border-color: @border;
+  border-radius: 14px;
+  background-color: @bg-item;
+}
+
+element selected {
+  border: 2px;
+  border-color: @border-selected;
+  background-color: @bg-selected;
+}
+
+element-icon {
+  size: 150px;
+  vertical-align: 0.5;
+  horizontal-align: 0.5;
+}
+
+element-text {
+  enabled: false;
+}

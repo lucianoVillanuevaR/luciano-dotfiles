@@ -37,6 +37,7 @@ cd ~/.dotfiles
 
 ```bash
 cp /ruta/a/imagen.jpg ~/.dotfiles/wallpapers/current.jpg
+cp /ruta/a/imagen.jpg ~/.dotfiles/wallpapers/library/
 ```
 
 Si Hyprland ya esta iniciado:
