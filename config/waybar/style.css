@@ -1,45 +1,63 @@
+@define-color island-bg rgba(20, 20, 20, 0.50);
+@define-color text #f0f0f0;
+@define-color text-strong #ffffff;
+@define-color text-muted #a8a8a8;
+@define-color hover-bg rgba(255, 255, 255, 0.07);
+
 * {
   border: none;
   border-radius: 0;
-  font-family: "JetBrainsMono Nerd Font", "Noto Sans", sans-serif;
-  font-size: 13px;
+  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font Mono", "Noto Sans", sans-serif;
+  font-size: 11px;
   letter-spacing: 0;
   min-height: 0;
 }
 
 window#waybar {
-  background: rgba(5, 5, 5, 0.66);
-  color: #f0f0f0;
-  border: 1px solid rgba(255, 255, 255, 0.10);
-  border-radius: 9px;
+  background: transparent;
+  color: @text;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  background: @island-bg;
+  border-radius: 10px;
+  margin: 4px 0 2px;
 }
 
 tooltip {
-  background: rgba(15, 15, 15, 0.88);
-  color: #f0f0f0;
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 9px;
+  background: rgba(20, 20, 20, 0.88);
+  color: @text-strong;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 10px;
+}
+
+tooltip label {
+  color: @text-strong;
+  font-size: 11px;
 }
 
 #workspaces button {
-  color: #a0a0a0;
-  padding: 0 7px;
-  margin: 3px 1px;
+  color: @text-muted;
+  padding: 0 8px;
+  margin: 0 1px;
   border-radius: 7px;
+  background: transparent;
 }
 
 #workspaces button.active {
-  color: #f0f0f0;
+  color: @text-strong;
   background: rgba(255, 255, 255, 0.10);
 }
 
 #workspaces button.urgent {
-  color: #050505;
-  background: #f7768e;
+  color: @text-strong;
+  background: rgba(255, 255, 255, 0.16);
 }
 
 #clock {
-  color: #f0f0f0;
+  color: @text-strong;
   font-weight: 700;
 }
 
@@ -48,15 +66,14 @@ tooltip {
 #battery,
 #clock,
 #custom-spotify {
-  padding: 0 7px;
-  margin: 4px 1px;
+  padding: 0 9px;
+  margin: 0 1px;
   background: transparent;
   border-radius: 7px;
 }
 
 #custom-spotify {
   color: #d8d8d8;
-  margin-right: 6px;
 }
 
 #network:hover,
@@ -65,13 +82,13 @@ tooltip {
 #clock:hover,
 #custom-spotify:hover,
 #workspaces button:hover {
-  background: rgba(255, 255, 255, 0.07);
+  background: @hover-bg;
 }
 
 #battery.critical:not(.charging) {
-  color: #f7768e;
+  color: #ff8a8a;
 }
 
 #battery.warning:not(.charging) {
-  color: #e0af68;
+  color: #c8c8c8;
 }

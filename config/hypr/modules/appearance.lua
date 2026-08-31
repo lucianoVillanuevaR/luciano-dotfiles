@@ -9,9 +9,9 @@ local palette = {
 
 hl.config({
   general = {
-    gaps_in = 4,
-    gaps_out = 10,
-    border_size = 2,
+    gaps_in = 3,
+    gaps_out = 3,
+    border_size = 0,
     col = {
       active_border = palette.border_active,
       inactive_border = palette.border,
@@ -22,12 +22,12 @@ hl.config({
   },
 
   decoration = {
-    rounding = 9,
+    rounding = 8,
     active_opacity = 1.0,
     inactive_opacity = 1.0,
     shadow = {
       enabled = true,
-      range = 7,
+      range = 8,
       render_power = 2,
       color = palette.shadow,
     },

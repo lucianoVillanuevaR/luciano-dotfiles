@@ -133,7 +133,10 @@ case "$selection" in
   Wi-Fi:*) toggle_wifi ;;
   Bluetooth:*) toggle_bluetooth ;;
   "No molestar"*) toggle_dnd ;;
-  Bloquear) hyprlock --config "$HOME/.dotfiles/config/hyprlock/hyprlock.conf" ;;
-  "Sesión / Apagar") wlogout ;;
+  Bloquear) "$HOME/.dotfiles/scripts/session-action.sh" lock ;;
+  "Sesión / Apagar")
+    pgrep -x wlogout >/dev/null 2>&1 ||
+      PATH="$HOME/.dotfiles/scripts:$PATH" wlogout --buttons-per-row 5 --column-spacing 12 --row-spacing 12 --margin-left 360 --margin-right 360 --margin-top 420 --margin-bottom 420
+    ;;
   "") exit 0 ;;
 esac

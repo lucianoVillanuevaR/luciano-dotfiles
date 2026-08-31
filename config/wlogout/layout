@@ -1,30 +1,30 @@
 {
   "label": "lock",
-  "action": "hyprlock",
-  "text": "Lock",
+  "action": "session-action.sh lock",
+  "text": " Bloquear",
   "keybind": "l"
 }
 {
   "label": "logout",
-  "action": "hyprctl dispatch exit",
-  "text": "Logout",
+  "action": "session-action.sh logout",
+  "text": "󰍃 Cerrar sesión",
   "keybind": "e"
 }
 {
   "label": "suspend",
-  "action": "systemctl suspend",
-  "text": "Suspend",
+  "action": "session-action.sh suspend",
+  "text": "󰒲 Suspender",
   "keybind": "s"
 }
 {
   "label": "reboot",
-  "action": "systemctl reboot",
-  "text": "Reboot",
+  "action": "session-action.sh reboot",
+  "text": "󰜉 Reiniciar",
   "keybind": "r"
 }
 {
   "label": "shutdown",
-  "action": "systemctl poweroff",
-  "text": "Shutdown",
+  "action": "session-action.sh poweroff",
+  "text": " Apagar",
   "keybind": "p"
 }

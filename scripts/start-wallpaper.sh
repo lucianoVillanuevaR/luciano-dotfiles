@@ -10,4 +10,4 @@ if pgrep -u "${USER:-$(id -un)}" -x hyprpaper >/dev/null 2>&1; then
   exit 0
 fi
 
-hyprpaper >/dev/null 2>&1 &
+setsid -f hyprpaper >/dev/null 2>&1

@@ -3,54 +3,69 @@
   bg-alt: rgba(15, 15, 15, 74%);
   fg: #f0f0f0;
   muted: #a0a0a0;
-  border: rgba(255, 255, 255, 12%);
-  active: rgba(255, 255, 255, 14%);
+  border: rgba(255, 255, 255, 10%);
+  active: rgba(255, 255, 255, 12%);
   urgent: #f7768e;
 
   background-color: transparent;
   text-color: @fg;
+  font: "JetBrainsMono Nerd Font 11";
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 }
 
 window {
-  width: 42%;
+  location: center;
+  width: 420px;
   border: 1px;
   border-color: @border;
-  border-radius: 10px;
+  border-radius: 18px;
   background-color: @bg;
+  padding: 12px;
 }
 
 mainbox {
-  padding: 12px;
-  spacing: 10px;
+  orientation: vertical;
+  spacing: 12px;
 }
 
 inputbar {
-  padding: 10px;
-  border-radius: 9px;
+  padding: 8px 12px;
+  border: 1px;
+  border-color: @border;
+  border-radius: 12px;
   background-color: @bg-alt;
+  spacing: 10px;
   children: [prompt, entry];
 }
 
 prompt {
   text-color: @fg;
-  padding: 0 8px 0 0;
+  padding: 0;
+  vertical-align: 0.5;
 }
 
 entry {
-  placeholder: "Buscar";
+  font: "JetBrainsMono Nerd Font 13";
+  placeholder: "Buscar...";
   placeholder-color: @muted;
+  vertical-align: 0.5;
 }
 
 listview {
   lines: 8;
   columns: 1;
   fixed-height: true;
-  spacing: 4px;
+  scrollbar: false;
+  spacing: 6px;
+  padding: 2px 0 0 0;
 }
 
 element {
-  padding: 9px 10px;
-  border-radius: 9px;
+  padding: 9px 12px;
+  border-radius: 10px;
+  spacing: 12px;
 }
 
 element selected {
@@ -59,10 +74,11 @@ element selected {
 }
 
 element-icon {
-  size: 22px;
-  margin: 0 10px 0 0;
+  size: 28px;
+  vertical-align: 0.5;
 }
 
 element-text {
+  font: "JetBrainsMono Nerd Font 11";
   vertical-align: 0.5;
 }

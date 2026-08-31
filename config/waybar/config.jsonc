@@ -1,15 +1,15 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 32,
-  "spacing": 6,
-  "margin-top": 6,
+  "height": 28,
+  "spacing": 8,
+  "margin-top": 4,
   "margin-left": 8,
   "margin-right": 8,
 
   "modules-left": ["hyprland/workspaces"],
-  "modules-center": ["custom/spotify", "clock"],
-  "modules-right": ["network", "pulseaudio", "battery"],
+  "modules-center": ["clock"],
+  "modules-right": ["custom/spotify", "network", "pulseaudio", "battery"],
 
   "hyprland/workspaces": {
     "format": "{name}"
@@ -31,7 +31,7 @@
     "exec-if": "playerctl -p spotify_player status 2>/dev/null | grep -q '^Playing$'",
     "interval": 2,
     "return-type": "text",
-    "max-length": 40,
+    "max-length": 34,
     "on-click": "playerctl -p spotify_player play-pause",
     "on-click-right": "playerctl -p spotify_player next",
     "on-click-middle": "playerctl -p spotify_player previous",
