@@ -34,3 +34,4 @@ Steam/config/config.vdf
 *.zip
 node_modules/
 __pycache__/
+wallpapers/current.jpg

@@ -8,6 +8,8 @@ local function run_once(command, pattern)
 end
 
 hl.on("hyprland.start", function()
+  run_once("$HOME/.dotfiles/scripts/start-wallpaper.sh", "hyprpaper")
+  run_once("swaync", "^swaync$")
   run_once("waybar", "^waybar$")
   run_once("wl-paste --type text --watch cliphist store", "wl-paste --type text --watch cliphist store")
   run_once("wl-paste --type image --watch cliphist store", "wl-paste --type image --watch cliphist store")

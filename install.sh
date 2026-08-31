@@ -38,7 +38,7 @@ install_dotfiles() {
 }
 
 hyprland_dotfiles_preflight() {
-  local required=(Hyprland waybar rofi hyprlock wlogout wl-copy cliphist grim slurp)
+  local required=(Hyprland waybar rofi hyprlock wlogout hyprpaper swaync wl-copy cliphist grim slurp)
   local missing=()
   local tool
 
@@ -66,6 +66,7 @@ install_hyprland_dotfiles() {
   hyprland_dotfiles_preflight
   log_info "Installing Hyprland managed dotfiles"
   install_config_dir "hypr" "$HOME/.config/hypr"
+  install_config_dir "swaync" "$HOME/.config/swaync"
   install_config_dir "waybar" "$HOME/.config/waybar"
   install_config_dir "rofi" "$HOME/.config/rofi"
   install_config_dir "hyprlock" "$HOME/.config/hyprlock"

@@ -1,0 +1,130 @@
+* {
+  font-family: "Inter", "Noto Sans", "Cantarell", sans-serif;
+  font-size: 14px;
+  color: #c0caf5;
+}
+
+window {
+  background: transparent;
+}
+
+.control-center {
+  background: #0f1117;
+  border: 1px solid #3d4658;
+  border-radius: 10px;
+  padding: 12px;
+}
+
+.notification-row {
+  outline: none;
+}
+
+.notification-row:focus,
+.notification-row:hover {
+  background: rgba(122, 162, 247, 0.08);
+}
+
+.notification {
+  background: #171a21;
+  border: 1px solid #3d4658;
+  border-radius: 8px;
+  margin: 6px;
+  padding: 10px;
+  box-shadow: none;
+}
+
+.notification.critical {
+  border-color: #f7768e;
+}
+
+.notification-content {
+  margin: 6px;
+}
+
+.summary {
+  color: #c0caf5;
+  font-weight: 700;
+}
+
+.time,
+.body {
+  color: #a9b1d6;
+}
+
+.body {
+  margin-top: 6px;
+}
+
+.close-button {
+  background: #24283b;
+  color: #c0caf5;
+  border: 1px solid #3d4658;
+  border-radius: 8px;
+  min-width: 24px;
+  min-height: 24px;
+}
+
+.close-button:hover {
+  background: #7aa2f7;
+  color: #0f1117;
+}
+
+.control-center .notification {
+  margin: 8px 0;
+}
+
+.widget-title {
+  margin: 4px 4px 10px;
+}
+
+.widget-title > label {
+  color: #c0caf5;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.widget-title > button,
+.widget-dnd > switch,
+.notification-action {
+  background: #171a21;
+  color: #c0caf5;
+  border: 1px solid #3d4658;
+  border-radius: 8px;
+  padding: 6px 10px;
+}
+
+.widget-title > button:hover,
+.notification-action:hover {
+  background: #7aa2f7;
+  color: #0f1117;
+}
+
+.widget-dnd {
+  margin: 4px 4px 12px;
+  color: #c0caf5;
+}
+
+.widget-dnd > switch {
+  padding: 2px;
+}
+
+.widget-dnd > switch:checked {
+  background: #9ece6a;
+  border-color: #9ece6a;
+}
+
+.widget-dnd > switch slider {
+  background: #c0caf5;
+  border-radius: 8px;
+  min-width: 18px;
+  min-height: 18px;
+}
+
+.notification-default-action,
+.notification-action {
+  border-radius: 8px;
+}
+
+.notification-default-action:hover {
+  background: rgba(122, 162, 247, 0.08);
+}

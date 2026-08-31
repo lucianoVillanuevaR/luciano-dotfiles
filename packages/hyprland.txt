@@ -4,6 +4,8 @@ waybar
 rofi-wayland
 hyprlock
 wlogout
+hyprpaper
+swaync
 wl-clipboard
 cliphist
 grim
