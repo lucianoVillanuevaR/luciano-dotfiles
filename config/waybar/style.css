@@ -53,11 +53,17 @@ tooltip {
 #temperature,
 #network,
 #pulseaudio,
-#battery {
+#battery,
+#custom-spotify {
   padding: 0 10px;
   margin: 5px 2px;
   background: rgba(25, 25, 25, 0.68);
   border-radius: 8px;
+}
+
+#custom-spotify {
+  color: #f0f0f0;
+  margin-right: 8px;
 }
 
 #temperature.critical,

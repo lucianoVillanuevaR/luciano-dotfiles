@@ -11,6 +11,7 @@ hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ mode = "fullscreen", actio
 hl.bind(mainMod .. " + SPACE", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("~/.dotfiles/scripts/clipboard-menu.sh"))
 hl.bind(mainMod .. " + L", hl.dsp.exec_cmd("hyprlock"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("kitty --class spotify-player spotify_player"))
 hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("~/.dotfiles/scripts/minimize-window.sh"))
 hl.bind(mainMod .. " + SHIFT + M", hl.dsp.exec_cmd("~/.dotfiles/scripts/restore-minimized.sh"))
 
