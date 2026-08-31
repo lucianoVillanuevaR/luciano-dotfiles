@@ -1,9 +1,10 @@
 * {
-  bg: #0f1117;
-  bg-alt: #171a21;
-  fg: #c0caf5;
-  muted: #7f849c;
-  accent: #7aa2f7;
+  bg: rgba(5, 5, 5, 78%);
+  bg-alt: rgba(15, 15, 15, 74%);
+  fg: #f0f0f0;
+  muted: #a0a0a0;
+  border: rgba(255, 255, 255, 12%);
+  active: rgba(255, 255, 255, 14%);
   urgent: #f7768e;
 
   background-color: transparent;
@@ -13,8 +14,8 @@
 window {
   width: 42%;
   border: 1px;
-  border-color: #3d4658;
-  border-radius: 8px;
+  border-color: @border;
+  border-radius: 10px;
   background-color: @bg;
 }
 
@@ -25,13 +26,13 @@ mainbox {
 
 inputbar {
   padding: 10px;
-  border-radius: 6px;
+  border-radius: 9px;
   background-color: @bg-alt;
   children: [prompt, entry];
 }
 
 prompt {
-  text-color: @accent;
+  text-color: @fg;
   padding: 0 8px 0 0;
 }
 
@@ -49,12 +50,12 @@ listview {
 
 element {
   padding: 9px 10px;
-  border-radius: 6px;
+  border-radius: 9px;
 }
 
 element selected {
-  background-color: @accent;
-  text-color: @bg;
+  background-color: @active;
+  text-color: @fg;
 }
 
 element-icon {

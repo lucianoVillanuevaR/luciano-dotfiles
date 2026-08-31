@@ -1,11 +1,10 @@
 local palette = {
-  bg = "rgba(0f1117ee)",
-  bg_dim = "rgba(171a21cc)",
-  border = "rgba(3d4658aa)",
-  accent = "rgba(7aa2f7ee)",
-  accent_alt = "rgba(9ece6aee)",
-  text = "rgba(c0caf5ff)",
-  shadow = 0xaa05070a,
+  bg = "rgba(050505a6)",
+  bg_dim = "rgba(0f0f0fb8)",
+  border = "rgba(ffffff1f)",
+  border_active = "rgba(ffffff59)",
+  text = "rgba(f0f0f0ff)",
+  shadow = 0x99000000,
 }
 
 hl.config({
@@ -14,7 +13,7 @@ hl.config({
     gaps_out = 10,
     border_size = 2,
     col = {
-      active_border = { colors = { palette.accent, palette.accent_alt }, angle = 35 },
+      active_border = palette.border_active,
       inactive_border = palette.border,
     },
     resize_on_border = true,
@@ -23,12 +22,12 @@ hl.config({
   },
 
   decoration = {
-    rounding = 8,
+    rounding = 9,
     active_opacity = 1.0,
     inactive_opacity = 1.0,
     shadow = {
       enabled = true,
-      range = 10,
+      range = 9,
       render_power = 2,
       color = palette.shadow,
     },
